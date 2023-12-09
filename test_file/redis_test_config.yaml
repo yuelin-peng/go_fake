@@ -1,0 +1,8 @@
+Resource: fund_batch_order
+Type: redis
+Mock:
+  - Command: IncrBy
+    Condition:
+      Key: '29W07CHPP8#amount'
+    Resp:
+      Error: 'some thing is wrong'

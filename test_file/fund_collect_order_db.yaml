@@ -1,0 +1,70 @@
+Resource: fund_collect_order
+Type: DB
+LoadData:
+  - PaymentOrderNo: 'ONTT2310181710359010780677694597'
+    Amount: 1
+    BalanceAccountId: '2008344932140418065'
+    OutMemberId: '800010000220051'
+    ChannelCode: 'YZT_1028'
+    ChannelType: 'YZT'
+    ShardingKey: '0561'
+    ReqBatchNo: ''
+    GroupNo: 0
+  - PaymentOrderNo: 'ONTT2310181710359010780677694598'
+    Amount: 1
+    BalanceAccountId: '2008344932140418065'
+    OutMemberId: '800010000220051'
+    ChannelCode: 'YZT_1028'
+    ChannelType: 'YZT'
+    ShardingKey: 'sharding_key'
+    ReqBatchNo: ''
+    GroupNo: 0
+  - PaymentOrderNo: 'ONTT2310181710359010780677694599'
+    Amount: 120
+    BalanceAccountId: '2008344932140418065'
+    OutMemberId: '800010000220051'
+    ChannelCode: 'YZT_1028'
+    ChannelType: 'YZT'
+    ShardingKey: '0561'
+    ReqBatchNo: ''
+    GroupNo: 0
+Mock:
+  - Command: select
+    Condition: collect_order_no = 'ONTT2310181710359010780677694597'
+    Resp:
+      Error: ~
+      RowsAffected: 0
+      Data:
+        - PaymentOrderNo: 'ONTT2310181710359010780677694597'
+          Amount: 1
+          BalanceAccountId: '2008344932140418065'
+          OutMemberId: '800010000220051'
+          ChannelCode: 'YZT_1028'
+          ChannelType: 'YZT'
+          ShardingKey: '0561'
+          ReqBatchNo: ''
+          GroupNo: 0
+  - Rommand: select
+    Condition: channel_type = 'YZT' and status = 'INIT'
+    Resp:
+      Error: ~
+      RowsAffected: 0
+      Data:
+        - PaymentOrderNo: 'ONTT2310181710359010780677694597'
+          Amount: 1
+          BalanceAccountId: '2008344932140418065'
+          OutMemberId: '800010000220051'
+          ChannelCode: 'YZT_1028'
+          ChannelType: 'YZT'
+          ShardingKey: 'sharding_key'
+          ReqBatchNo: ''
+          GroupNo: 0
+        - PaymentOrderNo: 'ONTT2310181710359010780677694598'
+          Amount: 120
+          BalanceAccountId: '2008344932140418065'
+          OutMemberId: '800010000220051'
+          ChannelCode: 'YZT_1028'
+          ChannelType: 'YZT'
+          ShardingKey: '0561'
+          ReqBatchNo: ''
+          GroupNo: 0

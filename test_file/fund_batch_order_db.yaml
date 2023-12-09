@@ -1,0 +1,38 @@
+Resource: fund_batch_order
+Type: DB
+Mock:
+  - Command: select
+    Condition: sharding_key = '0'
+      and status = 'ACTIVITED'
+      and channel_code = 'YZT_1028'
+      and group_no = 0
+    Resp:
+      Error: ~
+      RowsAffected: 0
+      Data:
+        - ShardingKey: '0'
+          BatchOrderNo: '29W07CHPP8'
+          OutChannelOrderNo: '5709063849113827374'
+          ChannelCode: 'YZT_1028'
+          ChannelType: 'YZT'
+          Amount: 1100772
+          CollectOrderCount: 8
+          FeeAmount: 0
+          Currency: 'CNY'
+          GroupNo: 0
+          Status: 'ACTIVITED'
+          RetCode: 'CH1000'
+          RetMsg: '操作成功'
+          OutChannelRetCode:
+          OutChannelRetMsg:
+          SubRetCode:
+          SubRetMsg:
+          GmtCreated: '2023-10-18T17:10:22'
+          GmtModified: '2023-10-18T17:36:03'
+          Version: 10
+          MerchantId: ''
+          OutMemberId: '800010000220051'
+          ProvisionsInfo: ''
+          ReqBatchNo: ''
+          IncomeAccount: '800010000220051'
+          IncomeAccountType: ''
